@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 template <typename T>
@@ -11,9 +12,35 @@ void swap(T d[],int x,int y){
 
 template <typename T>
 void insertionSort(T d[],int N){
-	
-//Write your code here.
 
+	for(int i=1; i<N; i++){
+
+		for(int j=0; j<N; j++){
+			
+			if(i==j)	cout<<"["<<d[j]<<"] ";
+			else cout<<d[j]<<" ";
+		}
+		cout<<"=> ";
+
+		T swappos = i;
+
+		for(int j=i-1; j>=0; j--){
+			
+			if(d[j] < d[j+1]){
+
+				swap(d, j, j+1);
+				swappos = j;
+			}
+			else break;
+		}
+
+		for(int j=0; j<N; j++){
+
+			if(j==swappos)	cout<<"["<<d[j]<<"] ";
+			else	cout<<d[j]<<" ";
+		}
+		cout<<endl;
+	}
 }
 
 int main(){
